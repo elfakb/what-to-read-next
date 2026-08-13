@@ -4,7 +4,28 @@
 
 This project implements two complementary recommendation strategies — dense vector retrieval over book embeddings, and item-based collaborative filtering over user rating history — and combines them into a single weighted ranking system. Built as an end-to-end demonstration of the recommendation systems pipeline: data ingestion, embedding generation, vector indexing, similarity computation, hybrid ranking, and offline evaluation.
 
-> Demo: 
+## Demo: 
+
+
+
+
+
+https://github.com/user-attachments/assets/5704bc0d-eb29-4baf-b96a-2fcd3e0cc8d0
+
+https://github.com/user-attachments/assets/1bf6567e-663d-4153-9f19-1e8589a04afe
+
+
+
+
+
+
+## Screenshots
+
+<img width="1462" height="831" alt="image" src="https://github.com/user-attachments/assets/5538d1b3-b456-4a97-a14d-2b10a413f089" />
+<img width="1462" height="831" alt="image" src="https://github.com/user-attachments/assets/fe2d4c68-9b4d-4613-a337-cf8d65953350" />
+<img width="1462" height="831" alt="image" src="https://github.com/user-attachments/assets/ccff59ab-b56a-4251-8a72-8fc89f58b32c" />
+<img width="1462" height="831" alt="image" src="https://github.com/user-attachments/assets/181cd296-d809-4d46-8288-8a2d31402fa4" />
+<img width="1462" height="831" alt="image" src="https://github.com/user-attachments/assets/34a3370c-9300-425f-849d-2ef822d18137" />
 
 ---
 
