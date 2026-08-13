@@ -1,0 +1,19 @@
+# Environment
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# ChromaDB
+db/chroma/
+
+# Large datasets
+data/raw/ratings.csv
+
+# Optional processed data
+data/processed/

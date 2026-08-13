@@ -1,0 +1,8 @@
+
+pandas
+scipy
+scikit-learn
+chromadb
+openai
+streamlit
+python-dotenv

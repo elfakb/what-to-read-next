@@ -1,0 +1,82 @@
+WHAT TO READ NEXT — ÇALIŞTIRMA VE SONUÇ KAYITLARI
+====================================================
+
+1. VERİ HAZIRLAMA
+----------------------------------------------------
+Komut:
+    python -m src.data_prep
+
+İşlev: Ham CSV verisini temizler, embed_text alanını oluşturur,
+temizlenmiş veriyi data/processed/books_processed.csv olarak kaydeder.
+
+
+2. VEKTÖR DEPOSU OLUŞTURMA
+----------------------------------------------------
+Komut:
+    python -m src.vector_store
+
+İşlev: Her kitap için OpenAI embedding'i üretir (text-embedding-3-small),
+ChromaDB'ye batch batch yükler. Tek seferlik kurulum adımı.
+
+
+3. UYGULAMAYI ÇALIŞTIRMA
+----------------------------------------------------
+Komut:
+    streamlit run app.py
+
+İşlev: Streamlit arayüzünü başlatır (localhost üzerinde).
+
+
+4. MODEL DEĞERLENDİRME (PRECISION@K)
+----------------------------------------------------
+Komut:
+    python -m scripts.evaluate
+
+İlk çalıştırma sonucu:
+    Evaluated on 499 users
+    Precision@5: 0.3042
+
+Not: Bu, orijinal aday havuzu genişliğiyle (top_indices = [1:20])
+elde edilen sonuçtur. Ana evaluate.py dosyasındaki resmi Precision@5
+metriği budur — README'de referans olarak bu kullanılıyor.
+
+
+5. PRECISION@5 vs PRECISION@10 KARŞILAŞTIRMASI
+----------------------------------------------------
+Komut:
+    python -m scripts.evaluate_5_vs_10
+
+Sonuç:
+    Evaluated on up to 500 users
+    Precision@5:  0.2697  (n=499 users)
+    Precision@10: 0.2158  (n=499 users)
+
+Not: Bu script, K=5 ve K=10'u aynı anda değerlendirmek için aday
+havuzunu daha geniş tutuyor (top_indices = [1:max(K_VALUES)*4]),
+bu yüzden Precision@5 sonucu ana evaluate.py'dekinden hafif farklı
+çıkıyor (0.2697 vs 0.3042). İkisi de doğru, sadece aday havuzu
+genişliği farklı — amaç kesin bir sayı üretmek değil, K arttıkça
+precision'ın nasıl bir eğilim gösterdiğini karşılaştırmak.
+
+Gözlem: Precision@10, Precision@5'ten daha düşük çıkıyor. Bu beklenen
+bir davranış: öneriler benzerlik skoruna göre sıralandığı için ilk 5
+her zaman en güçlü adaylar, 6-10. sıradakiler daha zayıf adaylar.
+Liste uzadıkça ortalama precision düşüyor ama bu modelin bozulduğu
+anlamına gelmiyor — precision/recall trade-off'unun doğal bir sonucu.
+
+
+ÖZET TABLO
+----------------------------------------------------
+Script                      | Precision@5 | Precision@10
+-----------------------------|-------------|-------------
+evaluate.py                  | 0.3042      | -
+evaluate_5_vs_10.py          | 0.2697      | 0.2158
+
+
+SONUÇ
+----------------------------------------------------
+Her iki script de rastgele baseline'dan (~%0.05-0.1) çok daha
+yüksek bir precision gösteriyor (200-300 kat), bu da collaborative
+filtering bileşeninin gerçek bir sinyal taşıdığını doğruluyor.
+Uygulama, en yüksek precision'ı önceliklendirmek için varsayılan
+olarak K=5 kullanıyor.
