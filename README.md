@@ -11,13 +11,13 @@ This project implements two complementary recommendation strategies — dense ve
 ## System Overview
 
 
-|Feature|Project Implementation|
-| Embedding model | OpenAI `text-embedding-3-small` (1536-dim) |
-| Vector index | ChromaDB (HNSW-based approximate nearest neighbor search) |
-| Collaborative | Item-item cosine similarity over a sparse user-rating matrix |
-| UI | Streamlit |
-| Dataset | [goodbooks-10k-extended](https://github.com/malcolmosh/goodbooks-10k-extended) (~10K books, ~6M ratings) |
-
+| Feature | Project Implementation |
+|---|---|
+| **Embedding model** | OpenAI `text-embedding-3-small` (1536 dimensions) |
+| **Vector index** | ChromaDB (HNSW-based approximate nearest neighbor search) |
+| **Collaborative filtering** | Item-item cosine similarity over a sparse user-rating matrix |
+| **UI** | Streamlit |
+| **Dataset** | [goodbooks-10k-extended](https://github.com/malcolmosh/goodbooks-10k-extended) (~10K books, ~6M ratings) |
 ---
 
 ## Architecture
