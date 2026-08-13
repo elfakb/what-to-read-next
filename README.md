@@ -11,7 +11,7 @@ This project implements two complementary recommendation strategies — dense ve
 ## System Overview
 
 
-|---|---|
+|Feature|Project Implementation|
 | Embedding model | OpenAI `text-embedding-3-small` (1536-dim) |
 | Vector index | ChromaDB (HNSW-based approximate nearest neighbor search) |
 | Collaborative | Item-item cosine similarity over a sparse user-rating matrix |
