@@ -1,3 +1,4 @@
+🌐 **[English](README.md)** | [Türkçe](README.tr.md)
 # 📚 What to Read Next
 
 **Kişiselleştirilmiş kitap önerileri sunmak için semantic search ve collaborative filtering'i birleştiren hibrit bir öneri motoru.**
