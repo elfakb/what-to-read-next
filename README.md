@@ -1,3 +1,4 @@
+🌐 **[English](README.md)** | [Türkçe](README.tr.md)
 # 📚 What to Read Next
 
 **A hybrid recommendation engine combining semantic search and collaborative filtering to surface personalized book recommendations.**
